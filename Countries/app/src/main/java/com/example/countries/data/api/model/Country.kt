@@ -1,4 +1,4 @@
-package com.example.countries.api.model
+package com.example.countries.data.api.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
