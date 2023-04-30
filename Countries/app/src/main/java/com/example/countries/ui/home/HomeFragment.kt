@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater)
 
         val adapter = CountryAdapter()
-        
+
         binding.recyclerview.adapter = adapter
         viewModel.countryList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
