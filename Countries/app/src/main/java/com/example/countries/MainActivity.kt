@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        SharedPrefs.init(this)
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
 
         val bottomNavigationView = binding.bottomNavigationView

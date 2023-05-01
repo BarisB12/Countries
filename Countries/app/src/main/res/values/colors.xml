@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Grey">#CFCFCF</color>
+    <color name="unFavoriteButtonColor">#C7C7C7</color>
+    <color name="favoriteButtonColor">#3F51B5</color>
 </resources>

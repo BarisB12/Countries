@@ -22,9 +22,7 @@ android {
 
         buildConfigField "String", "API_HOST", "\"https://wft-geo-db.p.rapidapi.com/\""
         buildConfigField "String", "API_X_RAPIDAPI_HOST", "\"wft-geo-db.p.rapidapi.com/\""
-        //buildConfigField "String", "API_KEY", "\"1ccefd8491msh0b2bfc256d96b71p1e2a93jsnc64b2bf74bd1\""
-
-        buildConfigField "String", "API_KEY", "\"da44267f14mshe955f03dff1b132p1d57adjsn1fd30e84d39a\""
+        buildConfigField "String", "API_KEY", "\"1ccefd8491msh0b2bfc256d96b71p1e2a93jsnc64b2bf74bd1\""
     }
 
     buildTypes {
