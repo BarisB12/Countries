@@ -1,7 +1,7 @@
 package com.example.countries.data.api
 
 import com.example.countries.data.api.model.CountryResponseModel
-import retrofit2.Call
+import com.example.countries.data.api.model.DetailResponseModel
 
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -18,17 +18,10 @@ interface CountryService {
         @Query("currencyCode") currencyCode: String = "EUR"
     ): CountryResponseModel
 
-    @GET("v1/geo/countries")
+    @GET("v1/geo/countries/{code}")
     suspend fun countryDetails(
         @Header("X-RapidAPI-Host") host: String,
         @Header("X-RapidAPI-Key") key: String,
-        @Query("code") code:String
-    ): CountryResponseModel
-
-   /* @GET("v1/geo/countries/{code}")
-    fun countryDetails(
-        @Header("X-RapidAPI-Host") host:String,
-        @Header("X-RapidAPI-Key") key:String,
-        @Path("code") code:String
-    ): Call<CountryDetailsResponse>*/
+        @Path("code") code: String
+    ): DetailResponseModel
 }

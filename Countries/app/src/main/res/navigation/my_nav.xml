@@ -3,14 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/HomeFragment"
         android:name="com.example.countries.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-
+        <action
+            android:id="@+id/action_HomeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.countries.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+    <argument
+        android:name="country"
+        app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
