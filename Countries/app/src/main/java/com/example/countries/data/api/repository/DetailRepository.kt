@@ -1,6 +1,8 @@
-package com.example.countries.data.api
+package com.example.countries.data.api.repository
 
 import com.example.countries.BuildConfig
+import com.example.countries.data.api.CountryService
+import com.example.countries.data.api.Service
 import com.example.countries.data.api.model.DetailResponseModel
 
 class DetailRepository(

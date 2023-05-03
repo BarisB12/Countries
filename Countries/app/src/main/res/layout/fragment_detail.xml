@@ -6,60 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/countryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Country Name :"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            tools:layout_editor_absoluteX="91dp"
+            tools:layout_editor_absoluteY="10dp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:id="@+id/detailImage"
         android:layout_width="414dp"
         android:layout_height="265dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="13dp"
         android:scaleType="centerCrop"
         android:src="@drawable/img"
-        app:layout_constraintBottom_toTopOf="@+id/countryCode"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarDetail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/white"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/favoriteButtonColor"
         android:text="More Information →"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countryName" />
+        app:layout_constraintTop_toBottomOf="@+id/countryCode" />
 
     <TextView
-        android:id="@+id/countryName"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="329dp"
-        android:text="Country Code :"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:textStyle="italic"
+        android:text="Country Code: "
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/detailImage" />
+        app:layout_constraintTop_toBottomOf="@+id/detailImage" />
 
     <TextView
         android:id="@+id/countryCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text=""
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="32dp"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/countryName"
-        app:layout_constraintStart_toEndOf="@+id/countryName"/>
+        app:layout_constraintStart_toEndOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@+id/detailImage" />
 
     <ImageView
         android:id="@+id/imageViewBack"
@@ -70,6 +88,7 @@
         app:layout_constraintStart_toStartOf="@+id/detailImage"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backspace_image"
+        android:onClick="@{()-> detailFragment.back()}"
         app:tint="@color/black"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

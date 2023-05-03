@@ -7,11 +7,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.decode.SvgDecoder
@@ -47,7 +50,7 @@ class DetailFragment : Fragment() {
             val wiki = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wikidata.org/wiki/"+targetUrl))
             startActivity(wiki)
         }
+
         return binding.root
     }
-
 }

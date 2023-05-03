@@ -2,6 +2,7 @@ package com.example.countries
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.MenuItem
 
 object SharedPrefs {
     private const val APP_PREFERENCES = "app_preferences"
@@ -12,7 +13,7 @@ object SharedPrefs {
     }
 
     fun getAll(): MutableList<String> {
-        val countryList = preferences.all.map { it.key } //TODO: - buraya bak
+        val countryList = preferences.all.map { it.key }
         return countryList.toMutableList()
     }
 

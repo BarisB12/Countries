@@ -1,20 +1,32 @@
 package com.example.countries.ui.home
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countries.R
 import com.example.countries.SharedPrefs
 import com.example.countries.data.api.model.Country
 import com.example.countries.databinding.CountryItemBinding
+import com.example.countries.databinding.FragmentDetailBinding
+import com.example.countries.ui.detail.DetailFragment
+
 
 class CountryAdapter(
     private var countryList: List<Country> = listOf()
 ) : RecyclerView.Adapter<CountryAdapter.CountryCardHolder>() {
-    inner class CountryCardHolder(binding: CountryItemBinding) :
+    inner class CountryCardHolder(binding: CountryItemBinding ) :
         RecyclerView.ViewHolder(binding.root) {
         var binding: CountryItemBinding
 
@@ -48,6 +60,14 @@ class CountryAdapter(
                 item.favoriteButton.setColorFilter(ContextCompat.getColor(context, R.color.favoriteButtonColor))
                 SharedPrefs.addSavedCountry(country.name)
             }
+            countryList[position].isFavorited = SharedPrefs.checkSavedCountry(country.name)
+            notifyDataSetChanged()
+        }
+
+        item.cardView.setOnClickListener {
+           val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(country.code)
+
+            Navigation.findNavController(it).navigate(direction)
         }
 
         holder.update(country, context)
@@ -56,7 +76,7 @@ class CountryAdapter(
     override fun getItemCount(): Int {
         return countryList.size
     }
-    
+
     fun submitList(countryList: List<Country>) {
         this.countryList = countryList
         notifyDataSetChanged()
